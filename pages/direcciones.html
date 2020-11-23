@@ -157,7 +157,7 @@
 								</div>-->
 							</div>
 						</div>
-						<button class="btn bg-white border-left border-top border-top-sm-0 rounded-top-0 rounded-top-sm rounded-left-sm-0"><i class="material-icons text-primary icon-20pt">refresh</i></button>
+						<button id="refresh" class="btn bg-white border-left border-top border-top-sm-0 rounded-top-0 rounded-top-sm rounded-left-sm-0"><i class="material-icons text-primary icon-20pt">refresh</i></button>
 					</div>
 
 
@@ -178,343 +178,24 @@
 									</tr>
 								</thead>
 								<tbody class="list" id="companies">
-
-									<tr>
-										<td>
-											<div class="badge badge-light">#1</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 1</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-
-									<tr>
-										<td>
-											<div class="badge badge-light">#2</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 2</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="badge badge-light">#3</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 3</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="badge badge-light">#4</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 4</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="badge badge-light">#5</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 5</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="badge badge-light">#6</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 6</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr><tr>
-										<td>
-											<div class="badge badge-light">#7</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 7</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="badge badge-light">#8</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 8</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="badge badge-light">#9</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 9</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="badge badge-light">#10</div>
-										</td>
-										<td>
-											<div class="d-flex align-items-center">
-												<div class="d-flex align-items-center">
-													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
-													<a href="#">Dirección 10</a>
-												</div>
-											</div>
-											<div class="d-flex align-items-center">
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
-												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
-											</div>
-										</td>
-										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
-										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
-										<td style="width:80px" class="text-center">
-											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
-										</td>
-										<td style="width: 50px;">
-											<div class="dropdown pull-right">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
-													<div class="dropdown-divider"></div>
-													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
-												</div>
-											</div>
-										</td>
-									</tr>
+									<?php
+									$direcciones = obtenerDirecciones();
+										foreach ($direcciones as $d){
+											echo '<tr><td><div class="badge badge-light">#'.$d['idDirección'].'</div></td>';
+											echo '<td class="nombre"><div class="d-flex align-items-center"><div class="d-flex align-items-center"> <i class="material-icons icon-16pt mr-1 text-primary">person_pin</i> <a href="#">'.$d['Dirección'].'</a></div></div><div class="d-flex align-items-center"> <small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> '.$d['Subsecretaría'].' </small> <small class="text-muted"><i class="material-icons icon-16pt ml-1 mr-1">business</i> '.$d['Secretaría'].' </small></div></td>';                                        
+											echo '<td class="responsable"><i class="material-icons icon-16pt text-muted-light mr-1">person</i> '.$d['responsable'].'</td>';
+											echo '<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> '.$d['creado'].'</td>';
+											echo '<td style="width:80px" class="text-center"><i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">'.$d['colaboradores'].'</a></td>';
+											echo '<td style="width: 50px;"> <div class="dropdown pull-right"> <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a> <div class="dropdown-menu dropdown-menu-right"> <a href="javascript:editar('.$d['idDirección'].')" class="dropdown-item"><i class="material-icons mr-1">edit</i> Editar</a> <a href="javascript:ver('.$d['idDirección'].')" class="dropdown-item"><i class="material-icons mr-1">visibility</i> Ver</a> <div class="dropdown-divider"></div><a href="javascript:eliminar('.$d['idDirección'].')" class="dropdown-item"><i class="material-icons mr-1">not_interested</i> Desactivar</a> </div></div></td>';
+											echo '</tr>';
+										}
+									?> 
 								</tbody>
 							</table>
 						</div>
 
 						<div class="card-body text-right">
-							5 <span class="text-muted">de 10</span> <a href="#" class="text-muted-light"><i class="material-icons ml-1">arrow_forward</i></a>
+							<?php echo count($direcciones) ?> <span class="text-muted">de <?php echo count($direcciones) ?> </span> <a href="#" class="text-muted-light"><i class="material-icons ml-1">arrow_forward</i></a>
 						</div>
 
 
@@ -625,7 +306,7 @@
                     </div>               
                     <div class="form-group">
                         <label for="nombre">Nombre de dirección:</label>
-                        <input class="form-control" type="text" id="nombre" required="" placeholder="Ingrese el nombre para la nueva dirección">
+                        <input class="form-control" autocomplete="off" type="text" id="nombre" required="" placeholder="Ingrese el nombre para la nueva dirección">
                     </div>
                     <div class="form-group">
                         <label for="secretaria">Secretaría:</label>
@@ -691,7 +372,13 @@
                 showMethod: 'slideDown',
                 timeOut: 3000
             };
+			
+			$('#refresh').click(function(){
+				$('.search-form input').val('');
+				direccionesList.search();			
+			});
             
+
             $('#responsable').select2({
                 dropdownParent: $('#modal-agregardireccion'),
                 placeholder: 'Seleccione el responsable de esta secretaría',

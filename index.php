@@ -121,7 +121,7 @@ Route::add('/api/v1/(.*)/(.*)', function($object,$action) {
       $return = obtenerSubsecretariasPorSecretaria($action);   
     }
   }
-
+  
   //Subsecretaría
   else if($object == 'subsecretaria'){
     if($action=='crear'){
@@ -139,7 +139,7 @@ Route::add('/api/v1/(.*)/(.*)', function($object,$action) {
       }      
     }    
   }
-
+  
   //direccion
   else if($object == 'direccion'){
     if($action=='crear'){
@@ -156,8 +156,81 @@ Route::add('/api/v1/(.*)/(.*)', function($object,$action) {
       }else{
         $return = crearDireccion($data);
       }      
+    }else if($action == 'buscar'){
+      $secretaria = filter_input(INPUT_GET, 'secretaria');
+      $subsecretaria = filter_input(INPUT_GET, 'subsecretaria'); 
+      $search = filter_input(INPUT_GET, 'q');
+      if(empty($secretaria)){
+        $secretaria = 0;
+      }
+      if(empty($subsecretaria)){
+        $subsecretaria = 0;
+      } 
+      if(empty($search)){
+        $search = '';
+      }   
+      $return = obtenerDireccionPorSubYSecretaria($secretaria, $subsecretaria, $q);  
     }    
   }
+  //nivelestudio
+  else if($object == 'nivelestudio'){
+    if($action=='list'){
+      $search = filter_input(INPUT_GET, 'q');
+      $return = obtenerNivelDeEstudioJSON($search);     
+    }
+  }
+  //especialidad
+  else if($object == 'especialidad'){
+    if($action=='list'){
+      $search = filter_input(INPUT_GET, 'q');
+      $return = obtenerEspecialidadJSON($search);     
+    }
+  }
+  //disponibilidadhoraria
+  else if($object == 'disponibilidadhoraria'){
+    if($action=='list'){
+      $search = filter_input(INPUT_GET, 'q');
+      $return = obtenerDisponibilidadHorariaJSON($search);     
+    }
+  }
+  //habilidad
+  else if($object == 'habilidad'){
+    if($action=='list'){
+      $search = filter_input(INPUT_GET, 'q');
+      $return = obtenerHabilidadesJSON($search);     
+    }
+  }
+  //puesto
+  else if($object == 'puesto'){
+    if($action=='crear'){
+      $data['nombre'] = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+      $data['secretaria'] = isset($_POST['secretaria']) ? $_POST['secretaria'] : '';
+      $data['subsecretaria'] = isset($_POST['subsecretaria']) ? $_POST['subsecretaria'] : '';
+      $data['direccion'] = isset($_POST['direccion']) ? $_POST['direccion'] : '';
+      $data['nivelestudio'] = isset($_POST['nivelestudio']) ? $_POST['nivelestudio'] : '';
+      $data['especialidad'] = isset($_POST['especialidad']) ? $_POST['especialidad'] : '';
+      $data['disponibilidadhoraria'] = isset($_POST['disponibilidadHoraria']) ? $_POST['disponibilidadHoraria'] : '';
+      $data['habilidades'] = isset($_POST['habilidades']) ? $_POST['habilidades'] : '';
+
+      if(empty($data['nombre'])){
+        $return['message'] = "El nombre no puede estar vacío";
+      }else if(empty($data['secretaria'])){
+        $return['message'] = "Debe asociarse a una secretaría";
+      }else if(empty($data['direccion'])){
+        $return['message'] = "Debe asociarse a una dirección";
+      }else if(empty($data['nivelestudio'])){
+        $return['message'] = "Debe elegir un nivel de estudio";
+      }else if(empty($data['especialidad'])){
+        $return['message'] = "El campo especialidad no puede estar vacío";
+      }else if(empty($data['disponibilidadhoraria'])){
+        $return['message'] = "El campo disponibilidad horaria no puede estar vacío";
+      }else if(empty($data['habilidades'])){
+        $return['message'] = "El campo habilidades no puede estar vacío";
+      }else{
+        $return = crearPuesto($data); 
+      }          
+    }//fin crear puesto
+  }//fin objeto puesto
   //null
   else{
     $return['message'] = "Objeto inválido!";

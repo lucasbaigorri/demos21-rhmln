@@ -209,6 +209,12 @@ function obtenerSubsecretariasPorSecretaria($idSecretaria){
 	return array("results" => $query);
 }
 
+function obtenerDireccionPorSubYSecretaria($idSecretaria, $idSubsecretaria, $q){
+    $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
+    $query = $db->query("SELECT d.idDirección as id, d.Dirección as text FROM Dirección d WHERE (d.idSecretaría = ? OR d.idSubsecretaría = ?) AND (d.Dirección like '%".$q."%')",$idSecretaria,$idSubsecretaria)->fetchAll();	
+	return array("results" => $query);
+}
+
 function obtenerSubsecretarias(){
     $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
     $query = $db->query("SELECT s.idSubsecretaría, s.Subsecretaría, CONCAT(u.Nombre, ' ',u.Apellido) as responsable, u.idUsuario, DATE_FORMAT(s.creado, '%d/%m/%Y') as creado, (SELECT COUNT(*) from Usuario where idSubsecretaía = s.idSubsecretaría) as colaboradores, su.Secretaría FROM Subsecretaría s INNER JOIN Usuario u ON s.idResponsable = u.idUsuario INNER JOIN Secretaría su ON s.idSecretaría = su.idSecretaría order by s.idSubsecretaría desc")->fetchAll();	
@@ -218,6 +224,29 @@ function obtenerSubsecretarias(){
 function obtenerSubsecretariasJSON($q){
     $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
     $query = $db->query("SELECT s.idSubsecretaría as id, s.Subsecretaría as text FROM Subsecretaría s WHERE s.Subsecretaría like '%".$q."%'")->fetchAll();	
+	return array("results" => $query);
+}
+function obtenerNivelDeEstudioJSON($q){
+    $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
+    $query = $db->query("SELECT idNivelEstudio as id, NivelEstudio as text FROM NivelEstudio WHERE NivelEstudio like '%".$q."%'")->fetchAll();	
+	return array("results" => $query);
+}
+
+function obtenerEspecialidadJSON($q){
+    $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
+    $query = $db->query("SELECT idEspecialidad as id, EspecialidadTitulo as text FROM Especialidad WHERE EspecialidadTitulo like '%".$q."%'")->fetchAll();	
+	return array("results" => $query);
+}
+
+function obtenerDisponibilidadHorariaJSON($q){
+    $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
+    $query = $db->query("SELECT idDisponibilidadHoraria as id, DisponibilidadHoraria as text FROM DisponibilidadHoraria WHERE DisponibilidadHoraria like '%".$q."%'")->fetchAll();	
+	return array("results" => $query);
+}
+
+function obtenerHabilidadesJSON($q){
+    $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
+    $query = $db->query("SELECT h.idHabilidad as id, CONCAT(th.TipoHabilidad, ' - ', h.Habilidad) as text FROM Habilidad h INNER JOIN TipoHabilidad th ON h.idTipoHabilidad = th.idTipoHabilidad WHERE h.Habilidad like '%".$q."%'")->fetchAll();	
 	return array("results" => $query);
 }
 
@@ -238,4 +267,37 @@ function obtenerDirecciones(){
     $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
     $query = $db->query("SELECT d.idDirección, d.Dirección, s.Subsecretaría, su.Secretaría, CONCAT(u.Nombre, ' ',u.Apellido) as responsable, u.idUsuario, DATE_FORMAT(s.creado, '%d/%m/%Y') as creado, (SELECT COUNT(*) from Usuario where idDirección = d.idDirección) as colaboradores FROM Dirección d INNER JOIN Subsecretaría s ON d.idSubSecretaría = s.idSubsecretaría INNER JOIN Usuario u ON d.idResponsable = u.idUsuario INNER JOIN Secretaría su ON d.idSecretaría = su.idSecretaría order by d.idDirección desc")->fetchAll();	
 	return (array)$query;
+}
+
+function crearPuesto($data){
+    $return = array("status" => "error", "message" => NULL);
+    $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
+    $idPuesto = $db->query("INSERT INTO Cargo (Cargo, idDisponibilidadHoraria, idEspecialidad, idNivelEstudio, idSecretaría, idSubsecretaría, idDirección) VALUES (?,?,?,?,?,?,?)" 
+    , $data['nombre']
+    , $data['disponibilidadhoraria']
+    , $data['especialidad']
+    , $data['nivelestudio']
+    , $data['secretaria']
+    , $data['subsecretaria']
+    , $data['direccion']
+    )->lastInsertID();	
+    
+    foreach($data['habilidades'] as $habilidad){
+        $db ->query("INSERT INTO HabilidadesCargo(idHabilidadesCargo,idCargo) VALUES (?,?)",$habilidad,$idPuesto);
+    }
+    $return['message'] = "Se ha creado correctamente!";
+    $return['status'] = "success";
+    return $return;
+}
+
+function obtenerPuestos(){
+    $db = new db(DB_HOST, DB_USUARIO, DB_CONTRASENA, DB_NOMBRE);
+    $query = $db->query("SELECT c.idCargo as id, c.Cargo as Puesto, sec.Secretaría, sub.Subsecretaría, d.Dirección, DATE_FORMAT(c.actualizado, '%d/%m/%Y') as actualizado, e.EspecialidadTitulo as Especialidad FROM Cargo c INNER JOIN Secretaría sec ON c.idSecretaría = sec.idSecretaría INNER JOIN Subsecretaría sub ON c.idSubsecretaría = sub.idSubsecretaría INNER JOIN Dirección d ON c.idDirección = d.idDirección INNER JOIN Especialidad e ON c.idEspecialidad = e.idEspecialidad")->fetchAll();	
+    
+    foreach($query as &$q){
+        $q['colaboradores'] = array();
+        $q['colaboradores'] = $db->query("select CONCAT(LEFT(Nombre,1),LEFT(Apellido, 1)) as iniciales, CONCAT(Nombre, ' ', Apellido) as nombre from Usuario where idCargo =?",$q['id'])->fetchAll();
+    }
+    
+    return $query;
 }

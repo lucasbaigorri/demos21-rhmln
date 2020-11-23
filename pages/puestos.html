@@ -6,23 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Puestos</title>
-
+    
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
-
+    
     <!-- Simplebar -->
     <link type="text/css" href="../assets/vendor/simplebar.min.css" rel="stylesheet">
-
+    
     <!-- App CSS -->
     <link type="text/css" href="../assets/css/app.css" rel="stylesheet">
-
+    
     <!-- Material Design Icons -->
     <link type="text/css" href="../assets/css/vendor-material-icons.css" rel="stylesheet">
     <link type="text/css" href="../assets/css/vendor-material-icons.rtl.css" rel="stylesheet">
-
+    
     <!-- Font Awesome FREE Icons -->
     <link type="text/css" href="../assets/css/vendor-fontawesome-free.css" rel="stylesheet">
     <link type="text/css" href="../assets/css/vendor-fontawesome-free.rtl.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link type="text/css" href="../assets/css/vendor-select2.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-select2.rtl.css" rel="stylesheet">
+    <link type="text/css" href="../assets/vendor/select2/select2.min.css" rel="stylesheet">
+    
+    <!-- Toastr -->
+    <link type="text/css" href="../assets/vendor/toastr.min.css" rel="stylesheet">
+
+    <style>
+        .select2-selection__placeholder {
+            font-size:15px;
+        }
+    </style>
 </head>
 
 <body class="layout-fluid layout-sticky-subnav">
@@ -45,45 +58,45 @@
                         </a>
                     </div>
                 </div>
-
+                
             </div>
         </div>
-
+        
         <!-- // END Header -->
-
+        
         <!-- Header Layout Content -->
         <div class="mdk-header-layout__content page">
-         <div class="page__header page__header-nav">
-            <div class="container-fluid page__container">
-                <div class="navbar navbar-secondary navbar-light navbar-expand-sm p-0">
-                    <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarsExample03" type="button">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="navbar-collapse collapse" id="navbarsExample03">
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item active">
-                                <a href="#" class="nav-link" data-toggle="dropdown">Inicio</a>                                    
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menu</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="miscolaboradores">Mis colaboradores</a>
-                                    <div class="dropdown-divider"></div>
-                                    <div class="dropdown-header">Estructura organizacional</div>
-                                    <a class="dropdown-item" href="/estructuraorganizacional/puestos">Puestos</a>
-                                    <a class="dropdown-item" href="/estructuraorganizacional/secretarias">Secretarías</a>
-                                    <a class="dropdown-item" href="/estructuraorganizacional/subsecretarias">Subsecretarías</a>
-                                    <a class="dropdown-item" href="/estructuraorganizacional/direcciones">Direcciones</a>
-                                </div>
-                            </li>
-                        </ul>
+            <div class="page__header page__header-nav">
+                <div class="container-fluid page__container">
+                    <div class="navbar navbar-secondary navbar-light navbar-expand-sm p-0">
+                        <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarsExample03" type="button">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+                        <div class="navbar-collapse collapse" id="navbarsExample03">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item active">
+                                    <a href="#" class="nav-link" data-toggle="dropdown">Inicio</a>                                    
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menu</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="miscolaboradores">Mis colaboradores</a>
+                                        <div class="dropdown-divider"></div>
+                                        <div class="dropdown-header">Estructura organizacional</div>
+                                        <a class="dropdown-item" href="/estructuraorganizacional/puestos">Puestos</a>
+                                        <a class="dropdown-item" href="/estructuraorganizacional/secretarias">Secretarías</a>
+                                        <a class="dropdown-item" href="/estructuraorganizacional/subsecretarias">Subsecretarías</a>
+                                        <a class="dropdown-item" href="/estructuraorganizacional/direcciones">Direcciones</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container-fluid page__container">
-            <div class="container page__heading-container">
+            <div class="container-fluid page__container">
+                <div class="container page__heading-container">
                     <div class="page__heading d-flex align-items-center">
                         <div class="flex">
                             <nav aria-label="breadcrumb">
@@ -99,7 +112,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-3">
-                        <a href="#" class="btn btn-success mb-3 btn-block">Nuevo puesto <i class="material-icons">add_circle_outline</i></a>
+                        <a href="#" class="btn btn-success mb-3 btn-block" data-toggle="modal" data-target="#modalAgregarPuesto">Nuevo puesto <i class="material-icons">add_circle_outline</i></a>
                         <ul class="list-group">
                             <li class="list-group-item active"><a href="#" class="text-white"><strong>Todas las especialidades</strong></a></li>
                             <li class="list-group-item"><a href="#"><strong> Especialidad 1</strong></a></li>
@@ -108,15 +121,15 @@
                             <li class="list-group-item text-center"><a href="#" class="text-muted"><strong> Ver más (123)</strong></a></li>
                         </ul>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9" id="puestos">
                         <div class="d-flex mb-3">
                             <div class="form-inline">
-                                <div class="search-form search-form--light">
-                                    <input type="text" class="form-control" placeholder="Buscar..." id="searchSample03">
+                                <div class="search-form search-form--light">                                    
+                                    <input type="text" class="form-control search" placeholder="Buscar..." id="searchSample03">
                                     <button class="btn" type="button"><i class="material-icons">search</i></button>
                                 </div>
                             </div>
-                            <div class="ml-auto d-flex">
+                            <!--<div class="ml-auto d-flex">
                                 <div class="form-group form-inline mb-0">
                                     <label for="sort" class="mr-2">Orden</label>
                                     <select class="form-control" id="sort">
@@ -124,147 +137,28 @@
                                         <option value="">Viejos</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="stories-cards mb-4">
-                            <div class="card">
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <div class="m-4">
-                                        <a href="#" class="d-flex align-items-center text-muted"><i class="material-icons">people</i></a>
-                                    </div>
-                                    <div class="stories-card__title flex">
-                                        <h5 class="card-title m-0"><a href="" class="text-body">Barrendero</a></h5>
-                                        <small class="text-muted"><a href="#"><strong>Admin HR</strong></a> actualizó hace 2 min</small>
-                                    </div>
-                                    <div class="ml-auto d-flex align-items-center">
-                                        <div class="avatar-group mr-3">
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">LB</span>
-                                            </div>
-
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">MB</span>
-                                            </div>
-
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">NT</span>
-                                            </div>
-                                        </div>
-                                        <div class="badge badge-success badge-pill mr-3">Dirección 1</div>
-                                        <div class="badge badge-warning badge-pill mr-3">Secretaría 1</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <div class="m-4">
-                                        <a href="#" class="d-flex align-items-center text-muted"><i class="material-icons">people</i></a>
-                                    </div>
-                                    <div class="stories-card__title flex">
-                                        <h5 class="card-title m-0"><a href="" class="text-body">Administrativo contable</a></h5>
-                                        <small class="text-muted"><a href="#"><strong>Admin HR</strong></a> actualizó hace 5 min</small>
-                                    </div>
-                                    <div class="ml-auto d-flex align-items-center">
-                                        <div class="avatar-group mr-3">
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">JD</span>
-                                            </div>
-
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">BP</span>
-                                            </div>
-                                        </div>
-                                        <div class="badge badge-success badge-pill mr-3">Dirección 2</div>
-                                        <div class="badge badge-warning badge-pill mr-3">Secretaría 3</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <div class="m-4">
-                                        <a href="#" class="d-flex align-items-center text-muted"><i class="material-icons">people</i></a>
-                                    </div>
-                                    <div class="stories-card__title flex">
-                                        <h5 class="card-title m-0"><a href="" class="text-body">Recepcionista</a></h5>
-                                        <small class="text-muted"><a href="#"><strong>Admin HR</strong></a> actualizó hace 17 min</small>
-                                    </div>
-                                    <div class="ml-auto d-flex align-items-center">
-                                        <div class="avatar-group mr-3">
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">JP</span>
-                                            </div>
-
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">GP</span>
-                                            </div>
-
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">TB</span>
-                                            </div>
-                                        </div>
-                                        <div class="badge badge-success badge-pill mr-3">Dirección 3</div>
-                                        <div class="badge badge-warning badge-pill mr-3">Secretaría 5</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <div class="m-4">
-                                        <a href="#" class="d-flex align-items-center text-muted"><i class="material-icons">people</i></a>
-                                    </div>
-                                    <div class="stories-card__title flex">
-                                        <h5 class="card-title m-0"><a href="" class="text-body">Analista de datos</a></h5>
-                                        <small class="text-muted"><a href="#"><strong>Admin HR</strong></a> actualizó hace 29 min</small>
-                                    </div>
-                                    <div class="ml-auto d-flex align-items-center">
-                                        <div class="avatar-group mr-3">
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">JB</span>
-                                            </div>
-                                        </div>
-                                        <div class="badge badge-success badge-pill mr-3">Dirección 4</div>
-                                        <div class="badge badge-warning badge-pill mr-3">Secretaría 8</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <div class="m-4">
-                                        <a href="#" class="d-flex align-items-center text-muted"><i class="material-icons">people</i></a>
-                                    </div>
-                                    <div class="stories-card__title flex">
-                                        <h5 class="card-title m-0"><a href="" class="text-body">Técnico</a></h5>
-                                        <small class="text-muted"><a href="#"><strong>Admin HR</strong></a> actualizó hace 32 min</small>
-                                    </div>
-                                    <div class="ml-auto d-flex align-items-center">
-                                        <div class="avatar-group mr-3">
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">GB</span>
-                                            </div>
-
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">MO</span>
-                                            </div>
-
-                                            <div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="Author Name">
-                                                <span class="avatar-title rounded-circle">NN</span>
-                                            </div>
-                                        </div>
-                                        <div class="badge badge-success badge-pill mr-3">Dirección 4</div>
-                                        <div class="badge badge-warning badge-pill mr-3">Secretaría 8</div>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                            <ul class="list m-0 p-0" style="list-style-type: none;">
+                            <?php 
+                                $puestos = obtenerPuestos();
+                                foreach($puestos as $puesto){
+                                    echo '<li><div class="card"><div class="d-flex align-items-center flex-wrap"><div class="m-4"> <a href="#" class="d-flex align-items-center text-muted"><i class="material-icons">people</i></a></div><div class="stories-card__title flex"><h5 class="card-title m-0"><a href="" class="text-body nombre" >';
+                                    echo $puesto['Puesto'];
+                                    echo '</a></h5><small class="text-muted"> Actualizado el '.$puesto['actualizado'].'</small></div><div class="ml-auto d-flex align-items-center"><div class="avatar-group mr-3">';
+                                        foreach($puesto['colaboradores'] as $colaborador){
+                                            echo '<div class="avatar avatar-xxs" data-toggle="tooltip" data-placement="top" title="'.$colaborador['nombre'].'"><span class="avatar-title rounded-circle">'.$colaborador['iniciales'].'</span></div>';
+                                        }
+                                    echo '</div><div class="badge badge-success badge-pill mr-3">'.$puesto['Dirección'].'</div><div class="badge badge-warning badge-pill mr-3">'.$puesto['Subsecretaría'].'</div><div class="badge badge-info badge-pill mr-3">'.$puesto['Secretaría'].'</div></div></div></div></li>';
+                                }
+                                
+                            ?>
+                            </ul>
                         </div>
-
+                        
                         <div class="d-flex flex-row align-items-center mb-3">
-                            <div class="form-inline">
+                            <!--<div class="form-inline">
                                 Ver
                                 <select class="custom-select ml-2">
                                     <option value="20" selected>5</option>
@@ -272,151 +166,343 @@
                                     <option value="100">100</option>
                                     <option value="200">200</option>
                                 </select>
-                            </div>
+                            </div>-->
                             <div class="ml-auto">
-                                5 <span class="text-muted">de 100</span> <a href="#" class="icon-muted"><i class="material-icons float-right">arrow_forward</i></a>
+                                <?php echo count($puestos) ?> <span class="text-muted">de <?php echo count($puestos) ?></span> <a href="#" class="icon-muted"><i class="material-icons float-right">arrow_forward</i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- // END header-layout__content -->
     </div>
-    <!-- // END header-layout__content -->
-</div>
-<!-- // END header-layout -->
-
-<div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="end">
-    <div class="mdk-drawer__content">
-        <div class="sidebar sidebar-light sidebar-left simplebar" data-simplebar>
-            <div class="d-flex align-items-center sidebar-p-a border-bottom sidebar-account">
-                <a href="#" class="flex d-flex align-items-center text-underline-0 text-body">
-                    <span class="avatar mr-3">                     
-                        <div class="avatar avatar-sm" >
-                            <span class="avatar-title rounded-circle">US</span>
-                        </div>  
-                    </span>
-                    <span class="flex d-flex flex-column">
-                        <strong><?php echo $_SESSION['name'];?></strong>
-                        <small class="text-muted text-uppercase"><?php echo $_SESSION['rol'];?></small>
-                    </span>
-                </a>
-                <div class="dropdown ml-auto">
-                    <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-item-text dropdown-item-text--lh">
-                            <div><strong><?php echo $_SESSION['name'];?></strong></div>
-                            <div><?php echo $_SESSION['rol'];?></div>
+    <!-- // END header-layout -->
+    
+    <div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="end">
+        <div class="mdk-drawer__content">
+            <div class="sidebar sidebar-light sidebar-left simplebar" data-simplebar>
+                <div class="d-flex align-items-center sidebar-p-a border-bottom sidebar-account">
+                    <a href="#" class="flex d-flex align-items-center text-underline-0 text-body">
+                        <span class="avatar mr-3">                     
+                            <div class="avatar avatar-sm" >
+                                <span class="avatar-title rounded-circle">US</span>
+                            </div>  
+                        </span>
+                        <span class="flex d-flex flex-column">
+                            <strong><?php echo $_SESSION['name'];?></strong>
+                            <small class="text-muted text-uppercase"><?php echo $_SESSION['rol'];?></small>
+                        </span>
+                    </a>
+                    <div class="dropdown ml-auto">
+                        <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-item-text dropdown-item-text--lh">
+                                <div><strong><?php echo $_SESSION['name'];?></strong></div>
+                                <div><?php echo $_SESSION['rol'];?></div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Mi perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </div>
-            </div>
-             <div class="sidebar-heading sidebar-m-t">Menu</div>
-            <ul class="sidebar-menu">
-              
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="ui-icons.html">
-                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                        <span class="sidebar-menu-text">Inicio</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
-                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
-                        <span class="sidebar-menu-text">Otra seccion</span>
-                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                    </a>
-                    <ul class="sidebar-submenu collapse" id="apps_menu">
-                        <li class="sidebar-menu-item">
-                            <a class="sidebar-menu-button" href="#">
-                                <span class="sidebar-menu-text">Op1</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-menu-item">
-                            <a class="sidebar-menu-button" href="#">
-                                <span class="sidebar-menu-text">Op2</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-menu-item ">
-                            <a class="sidebar-menu-button" data-toggle="collapse" href="#op3">
-                                <span class="sidebar-menu-text">Op 3</span>
-                                <span class="ml-auto d-flex align-items-center">
-                                    <span class="sidebar-menu-toggle-icon"></span>
-                                </span>
-                            </a>
-                            <ul class="sidebar-submenu collapse " id="op3">
-                                <li class="sidebar-menu-item ">
-                                    <a class="sidebar-menu-button" href="#">
-                                        <span class="sidebar-menu-text">Op 3.1</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item ">
-                                    <a class="sidebar-menu-button" href="#">
-                                        <span class="sidebar-menu-text">Op. 3.2</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="sidebar-heading">Otro menu</div>
-            <div class="sidebar-block p-0">
-                <ul class="sidebar-menu" id="components_menu">
+                <div class="sidebar-heading sidebar-m-t">Menu</div>
+                <ul class="sidebar-menu">
+                    
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-icons.html">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                            <span class="sidebar-menu-text">Inicio</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
+                            <span class="sidebar-menu-text">Otra seccion</span>
+                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                        </a>
+                        <ul class="sidebar-submenu collapse" id="apps_menu">
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="#">
+                                    <span class="sidebar-menu-text">Op1</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="#">
+                                    <span class="sidebar-menu-text">Op2</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item ">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#op3">
+                                    <span class="sidebar-menu-text">Op 3</span>
+                                    <span class="ml-auto d-flex align-items-center">
+                                        <span class="sidebar-menu-toggle-icon"></span>
+                                    </span>
+                                </a>
+                                <ul class="sidebar-submenu collapse " id="op3">
+                                    <li class="sidebar-menu-item ">
+                                        <a class="sidebar-menu-button" href="#">
+                                            <span class="sidebar-menu-text">Op 3.1</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item ">
+                                        <a class="sidebar-menu-button" href="#">
+                                            <span class="sidebar-menu-text">Op. 3.2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
+                <div class="sidebar-heading">Otro menu</div>
+                <div class="sidebar-block p-0">
+                    <ul class="sidebar-menu" id="components_menu">
+                    </ul>
+                </div>
+                
             </div>
-
         </div>
     </div>
-</div>
-<!-- jQuery -->
-<script src="../assets/vendor/jquery.min.js"></script>
+    
+    <!-- Agregar nuevo pusto Modal -->
+    <div id="modalAgregarPuesto" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="px-3">
+                        <div class="d-flex justify-content-center mt-2 mb-4 navbar-light">                                                        
+                            <span class="navbar-brand" style="min-width: 0">Crear Puesto de Trabajo</span>                            
+                        </div>               
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="nombre">Nombre de secretaría:</label>
+                                <input class="form-control" autocomplete="off" type="text" id="nombre" required="" placeholder="Ingrese el nombre del cargo">
+                            </div>
+                            <div class="form-group">
+                                <label for="nivelDeEstudio">Nivel de Estudio:</label>
+                                <select class="select2" id="nivelDeEstudio" placeholder="Seleccione el nivel de estudio mínimo para este cargo">
+                                    <option></option>
+                                </select>
+                            </div>   
+                            <div class="form-group">
+                                <label for="especialidad">Especialidad:</label>
+                                <select class="select2" id="especialidad" placeholder="Seleccione la especialidad que requiere este puesto">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="disponibilidadHoraria">Disponibilidad horaria:</label>
+                                <select class="select2" id="disponibilidadHoraria" placeholder="Seleccione la disponibilidad horaria requerida">
+                                    <option></option>
+                                </select>
+                            </div> 
+                            <div class="form-group">
+                                <label for="habilidades">Habilidades:</label>
+                                <select class="select2" id="habilidades" placeholder="Seleccione las habilidades que requiere este puesto" multiple="multiple">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="secretaria">Secretaría:</label>
+                                <select class="select2" id="secretaria" placeholder="Seleccione la secretaría que corresponda">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subsecretaria">Subsecretaría:</label>
+                                <select class="select2" id="subsecretaria" placeholder="Seleccione la subsecretaría que corresponda">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección:</label>
+                                <select class="select2" id="direccion" placeholder="Seleccione la dirección que corresponda">
+                                    <option></option>
+                                </select>
+                            </div>   
+                        </div>
+                    </div>
+                    
+                    <div class="px-3">
+                        <div class="form-group text-right">
+                            <button class="btn btn-secondary" id="cancelarModal" type="submit">Cancelar</button>
+                            <button class="btn btn-primary" id="guardar" type="submit">Guardar</button>
+                        </div>
+                    </div>
+                    
+                </div> <!-- // END .modal-body -->
+            </div> <!-- // END .modal-content -->
+        </div> <!-- // END .modal-dialog -->
+    </div> <!-- // END .modal -->
+    <!-- jQuery -->
+    <script src="../assets/vendor/jquery.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="../assets/vendor/popper.min.js"></script>
+    <script src="../assets/vendor/bootstrap.min.js"></script>
+    
+    <!-- Simplebar -->
+    <script src="../assets/vendor/simplebar.min.js"></script>
+    
+    <!-- DOM Factory -->
+    <script src="../assets/vendor/dom-factory.js"></script>
+    
+    <!-- MDK -->
+    <script src="../assets/vendor/material-design-kit.js"></script>
+    
+    <!-- App -->
+    <script src="../assets/js/toggle-check-all.js"></script>
+    <script src="../assets/js/check-selected-row.js"></script>
+    <script src="../assets/js/dropdown.js"></script>
+    <script src="../assets/js/sidebar-mini.js"></script>
+    <script src="../assets/js/app.js"></script>
+    
+    <script src="../assets/vendor/select2/select2.min.js"></script>
+    <script src="../assets/vendor/toastr.min.js"></script>
+    
+    <!-- List.js -->
+    <script src="../assets/vendor/list.min.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function(){
+            $('#secretaria').select2({
+                dropdownParent: $('#modalAgregarPuesto'),
+                placeholder: 'Seleccione la secretaría que corresponda',
+                ajax: {
+                    url: '/api/v1/secretaria/list',
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+            
+            $('#secretaria').on('select2:select', function (e) {        
+                $('#subsecretaria').empty();
+                $('#direccion').empty();
+            });
+            
+            function getSubsecretariaURL() {
+                return "/api/v1/secretaria/"+$('#secretaria').val();
+            }
+            
+            function getDireccionURL() {
+                var secretaria = $('#secretaria').val();
+                var subsecretaria = $('#subsecretaria').val();
+                if(secretaria == 'undefined'){
+                    secretaria = '';
+                }
+                if(subsecretaria == 'undefined'){
+                    subsecretaria = '';
+                }
+                return "/api/v1/direccion/buscar?secretaria="+secretaria+"&subsecretaria="+subsecretaria;
+            }
+            
+            $('#subsecretaria').select2({
+                dropdownParent: $('#modalAgregarPuesto'),
+                placeholder: 'Seleccione la subsecretaría que corresponda',
+                ajax: {
+                    url: function() {
+                        return getSubsecretariaURL()
+                    },
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+            
+            $('#direccion').select2({
+                dropdownParent: $('#modalAgregarPuesto'),
+                placeholder: 'Seleccione la dirección que corresponda',
+                ajax: {
+                    url: function() {
+                        return getDireccionURL()
+                    },
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+            
+            $('#nivelDeEstudio').select2({
+                dropdownParent: $('#modalAgregarPuesto'),
+                placeholder: 'Seleccione el nivel de estudio mínimo',
+                ajax: {
+                    url: '/api/v1/nivelestudio/list',
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+            
+            $('#especialidad').select2({
+                dropdownParent: $('#modalAgregarPuesto'),
+                placeholder: 'Seleccione la especialidad que requiere este puesto',
+                ajax: {
+                    url: '/api/v1/especialidad/list',
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+            
+            $('#disponibilidadHoraria').select2({
+                dropdownParent: $('#modalAgregarPuesto'),
+                placeholder: 'Seleccione la disponibilidad horaria requerida',
+                ajax: {
+                    url: '/api/v1/disponibilidadhoraria/list',
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+            $('#habilidades').select2({
+                dropdownParent: $('#modalAgregarPuesto'),
+                placeholder: 'Seleccione las habilidades que requiere este puesto',
+                ajax: {
+                    url: '/api/v1/habilidad/list',
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
 
-<!-- Bootstrap -->
-<script src="../assets/vendor/popper.min.js"></script>
-<script src="../assets/vendor/bootstrap.min.js"></script>
+            $('#guardar').click(function() {
+                $('#guardar').prop('disabled', true);
+                $.post("/api/v1/puesto/crear", { nombre: $('#nombre').val(), secretaria: $('#secretaria').val(), subsecretaria: $('#subsecretaria').val(), direccion: $('#direccion').val(), nivelestudio: $('#nivelDeEstudio').val(), especialidad: $('#especialidad').val(), disponibilidadHoraria: $('#disponibilidadHoraria').val(), habilidades: $('#habilidades').val() }, function(data,status){
+                    data = JSON.parse(data);
+                    if(data.status === "success"){
+                        toastr.success(data.message, "Notificación");
+                        setTimeout (function() {
+                            location.href = '/estructuraorganizacional/puestos';
+                        }, 3000);
+                    }else{
+                        $('#guardar').prop('disabled', false);
+                        toastr.error(data.message, "Error");                        
+                    }
+                });
+            });
 
-<!-- Simplebar -->
-<script src="../assets/vendor/simplebar.min.js"></script>
+            $('#cancelarModal').click(function() {
+                $('#nombre').val('');
+				$('#responsable').empty();
+				$('#secretaria').empty();
+				$('#subsecretaria').empty();
+                $('#direccion').empty();
+                $('#habilidades').empty();
+                $('#disponibilidadHoraria').empty();
+                $('#especialidad').empty();
+                $('#nivelDeEstudio').empty();
+                $('#modalAgregarPuesto').modal('toggle'); 
+            });
 
-<!-- DOM Factory -->
-<script src="../assets/vendor/dom-factory.js"></script>
+            var options = {
+                valueNames: [ 'nombre', 'responsable' ]
+            };
 
-<!-- MDK -->
-<script src="../assets/vendor/material-design-kit.js"></script>
-
-<!-- App -->
-<script src="../assets/js/toggle-check-all.js"></script>
-<script src="../assets/js/check-selected-row.js"></script>
-<script src="../assets/js/dropdown.js"></script>
-<script src="../assets/js/sidebar-mini.js"></script>
-<script src="../assets/js/app.js"></script>
-
-<!-- App Settings (safe to remove) -->
-<script src="../assets/js/app-settings.js"></script>
-
-<!-- Flatpickr -->
-<script src="../assets/vendor/flatpickr/flatpickr.min.js"></script>
-<script src="../assets/js/flatpickr.js"></script>
-
-<!-- Global Settings -->
-<script src="../assets/js/settings.js"></script>
-
-<!-- Chart.js -->
-<script src="../assets/vendor/Chart.min.js"></script>
-
-<!-- App Charts JS -->
-<script src="../assets/js/charts.js"></script>
-
-<!-- Vector Maps -->
-<script src="../assets/vendor/jqvmap/jquery.vmap.min.js"></script>
-<script src="../assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
-<script src="../assets/js/vector-maps.js"></script>
-
+            var puestosList = new List('puestos', options);
+        });
+    </script>
+    
 </body>
 
 </html>
