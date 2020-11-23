@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Direcciones</title>
+
+	<!-- Prevent the demo from appearing in search engines -->
+	<meta name="robots" content="noindex">
+
+	<!-- Simplebar -->
+	<link type="text/css" href="../assets/vendor/simplebar.min.css" rel="stylesheet">
+
+	<!-- App CSS -->
+	<link type="text/css" href="../assets/css/app.css" rel="stylesheet">
+	<link type="text/css" href="../assets/css/app.rtl.css" rel="stylesheet">
+
+	<!-- Material Design Icons -->
+	<link type="text/css" href="../assets/css/vendor-material-icons.css" rel="stylesheet">
+	<link type="text/css" href="../assets/css/vendor-material-icons.rtl.css" rel="stylesheet">
+
+	<!-- Font Awesome FREE Icons -->
+	<link type="text/css" href="../assets/css/vendor-fontawesome-free.css" rel="stylesheet">
+	<link type="text/css" href="../assets/css/vendor-fontawesome-free.rtl.css" rel="stylesheet">
+
+	<!-- Select2 -->
+    <link type="text/css" href="../assets/css/vendor-select2.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-select2.rtl.css" rel="stylesheet">
+    <link type="text/css" href="../assets/vendor/select2/select2.min.css" rel="stylesheet">
+	
+	<!-- Toastr -->
+	<link type="text/css" href="../assets/vendor/toastr.min.css" rel="stylesheet">
+	
+</head>
+
+<body class="layout-fluid layout-sticky-subnav">
+	<div class="preloader"><div class="loader loader-primary loader-lg"></div></div>
+	<!-- Header Layout -->
+	<div class="mdk-header-layout js-mdk-header-layout">
+		<!-- Header -->
+		<div id="header" class="mdk-header bg-dark js-mdk-header m-0" data-fixed>
+			<div class="mdk-header__content">
+				<div class="navbar navbar-expand-sm navbar-main navbar-dark bg-dark pr-0 pr-0" id="navbar" data-primary>
+					<div class="container-fluid p-0">
+						<!-- Navbar toggler -->
+						<button class="navbar-toggler navbar-toggler-custom navbar-toggler-right d-block" type="button" data-toggle="sidebar">
+							<span class="material-icons">apps</span>
+						</button>
+						<!-- Navbar Brand -->
+						<a href="#" class="navbar-brand ">
+							<img class="navbar-brand-icon" src="../assets/images/logo.png" width="50" alt="HR MLN">
+							<span>HR MLN</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- // END Header -->
+
+		<!-- Header Layout Content -->
+		<div class="mdk-header-layout__content page">
+			<div class="page__header page__header-nav">
+				<div class="container-fluid page__container">
+					<div class="navbar navbar-secondary navbar-light navbar-expand-sm p-0">
+						<button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarsExample03" type="button">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="navbar-collapse collapse" id="navbarsExample03">
+							<ul class="nav navbar-nav">
+								<li class="nav-item active">
+									<a href="#" class="nav-link" data-toggle="dropdown">Inicio</a>                                    
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menu</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="miscolaboradores">Mis colaboradores</a>
+										<div class="dropdown-divider"></div>
+										<div class="dropdown-header">Estructura organizacional</div>
+										<a class="dropdown-item" href="/estructuraorganizacional/puestos">Puestos</a>
+										<a class="dropdown-item" href="/estructuraorganizacional/secretarias">Secretarías</a>
+										<a class="dropdown-item" href="/estructuraorganizacional/subsecretarias">Subsecretarías</a>
+										<a class="dropdown-item" href="/estructuraorganizacional/direcciones">Direcciones</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid page__container">
+				<div class="container page__heading-container">
+					<div class="page__heading d-flex align-items-center">
+						<div class="flex">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb mb-0">
+									<li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
+									<li class="breadcrumb-item">Estructura organizacional</li>
+									<li class="breadcrumb-item">Secretarías</li>                                
+									<li class="breadcrumb-item">Subsecretarias</li>
+									<li class="breadcrumb-item active" aria-current="page">Direcciones</li>
+								</ol>
+							</nav>
+							<h1 class="m-0">Direcciones</h1>
+						</div>
+						<a href="" class="btn btn-success ml-3" data-toggle="modal" data-target="#modal-agregardireccion">Agregar <i class="material-icons">add</i></a>
+					</div>
+				</div>
+
+
+
+				<div class="container page__container" id="direcciones">
+
+					<div class="card card-form d-flex flex-column flex-sm-row">
+						<div class="card-form__body card-body-form-group flex">
+							<div class="row">
+								<div class="col-sm-auto">
+									<div class="form-group">
+                                        <label for="filter_name">Filtrar</label>
+                                        <div class="search-form search-form--light">
+                                            <input type="text" class="form-control search" placeholder="Filtrar">
+                                            <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+                                        </div>
+                                    </div>
+								</div>
+								<!--<div class="col-sm-auto">
+									<div class="form-group">
+										<label for="filter_category">Secretaría</label><br>
+										<select id="filter_category" class="custom-select" style="width: 200px;">
+											<option value="all">Todas</option>
+											<option value="all">Secretaría 1</option>
+											<option value="all">Secretaría 2</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-auto">
+									<div class="form-group">
+										<label for="filter_stock">Depende de una subsecretaría</label>
+										<div class="custom-control custom-checkbox mt-sm-2">
+											<input type="checkbox" class="custom-control-input" id="filter_stock" checked="">
+											<label class="custom-control-label" for="filter_stock">Si</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-auto">
+									<div class="form-group">
+										<label for="filter_category">Subsecretaría</label><br>
+										<select id="filter_category" class="custom-select" style="width: 200px;">
+											<option value="all">Todas</option>
+											<option value="all">Subsecretaría 1</option>
+											<option value="all">Subsecretaría 2</option>
+										</select>
+									</div>
+								</div>-->
+							</div>
+						</div>
+						<button class="btn bg-white border-left border-top border-top-sm-0 rounded-top-0 rounded-top-sm rounded-left-sm-0"><i class="material-icons text-primary icon-20pt">refresh</i></button>
+					</div>
+
+
+					<div class="card">
+
+
+						<div class="table-responsive" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+
+							<table class="table mb-0 thead-border-top-0 table-striped">
+								<thead>
+									<tr>
+										<th style="width: 30px;" class="text-center">#ID</th>
+										<th>Dirección</th>
+										<th class="text-center">Responsable</th>
+										<th style="width: 120px;" class="text-center">Creado</th>
+										<th class="text-center">Colaboradores</th>
+										<th class="text-center">Acciones</th>  
+									</tr>
+								</thead>
+								<tbody class="list" id="companies">
+
+									<tr>
+										<td>
+											<div class="badge badge-light">#1</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 1</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<div class="badge badge-light">#2</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 2</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="badge badge-light">#3</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 3</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="badge badge-light">#4</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 4</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="badge badge-light">#5</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 5</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="badge badge-light">#6</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 6</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr><tr>
+										<td>
+											<div class="badge badge-light">#7</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 7</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="badge badge-light">#8</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 8</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="badge badge-light">#9</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 9</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="badge badge-light">#10</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex align-items-center">
+													<i class="material-icons icon-16pt mr-1 text-primary">person_pin</i>
+													<a href="#">Dirección 10</a>
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">work</i> Subsecretaría 1 - </small>
+												<small class="text-muted"><i class="material-icons icon-16pt mr-1">business</i> Secretaría 1</small>
+											</div>
+										</td>
+										<td><i class="material-icons icon-16pt text-muted-light mr-1">person</i> Juan Perez</td>
+										<td style="width: 140px;"><i class="material-icons icon-16pt text-muted-light mr-1">today</i> 05-05-2019</td>
+										<td style="width:80px" class="text-center">
+											<i class="material-icons icon-16pt text-muted mr-1">account_circle</i> <a href="#">20</a>
+										</td>
+										<td style="width: 50px;">
+											<div class="dropdown pull-right">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">edit</i> Editar</a>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">visibility</i> Ver</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:void(0)" class="dropdown-item"><i class="material-icons  mr-1">not_interested</i> Desactivar</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="card-body text-right">
+							5 <span class="text-muted">de 10</span> <a href="#" class="text-muted-light"><i class="material-icons ml-1">arrow_forward</i></a>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- // END header-layout__content -->
+	</div>
+	<!-- // END header-layout -->
+
+	<div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="end">
+        <div class="mdk-drawer__content">
+            <div class="sidebar sidebar-light sidebar-left simplebar" data-simplebar>
+                <div class="d-flex align-items-center sidebar-p-a border-bottom sidebar-account">
+                    <a href="#" class="flex d-flex align-items-center text-underline-0 text-body">
+                        <span class="avatar mr-3">                     
+                            <div class="avatar avatar-sm" >
+                                <span class="avatar-title rounded-circle">US</span>
+                            </div>  
+                        </span>
+                        <span class="flex d-flex flex-column">
+                            <strong><?php echo $_SESSION['name'];?></strong>
+                            <small class="text-muted text-uppercase"><?php echo $_SESSION['rol'];?></small>
+                        </span>
+                    </a>
+                    <div class="dropdown ml-auto">
+                        <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-item-text dropdown-item-text--lh">
+                                <div><strong><?php echo $_SESSION['name'];?></strong></div>
+                                <div><?php echo $_SESSION['rol'];?></div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-heading sidebar-m-t">Menu</div>
+                <ul class="sidebar-menu">
+                    
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-icons.html">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                            <span class="sidebar-menu-text">Inicio</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
+                            <span class="sidebar-menu-text">Otra seccion</span>
+                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                        </a>
+                        <ul class="sidebar-submenu collapse" id="apps_menu">
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="#">
+                                    <span class="sidebar-menu-text">Op1</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="#">
+                                    <span class="sidebar-menu-text">Op2</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item ">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#op3">
+                                    <span class="sidebar-menu-text">Op 3</span>
+                                    <span class="ml-auto d-flex align-items-center">
+                                        <span class="sidebar-menu-toggle-icon"></span>
+                                    </span>
+                                </a>
+                                <ul class="sidebar-submenu collapse " id="op3">
+                                    <li class="sidebar-menu-item ">
+                                        <a class="sidebar-menu-button" href="#">
+                                            <span class="sidebar-menu-text">Op 3.1</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item ">
+                                        <a class="sidebar-menu-button" href="#">
+                                            <span class="sidebar-menu-text">Op. 3.2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="sidebar-heading">Otro menu</div>
+                <div class="sidebar-block p-0">
+                    <ul class="sidebar-menu" id="components_menu">
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>  
+	<!-- Agregar direccion Modal -->
+<div id="modal-agregardireccion" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="px-3">
+                    <div class="d-flex justify-content-center mt-2 mb-4 navbar-light">                                                        
+                        <span class="navbar-brand" style="min-width: 0">Agregar dirección</span>                            
+                    </div>               
+                    <div class="form-group">
+                        <label for="nombre">Nombre de dirección:</label>
+                        <input class="form-control" type="text" id="nombre" required="" placeholder="Ingrese el nombre para la nueva dirección">
+                    </div>
+                    <div class="form-group">
+                        <label for="secretaria">Secretaría:</label>
+                        <select class="select2" id="secretaria" placeholder="Seleccione la secretaría de la que depende">
+                            <option></option>
+                        </select>
+					</div>
+					<div class="form-group">
+                        <label for="subsecretaria">SubSecretaría:</label>
+                        <select class="select2" id="subsecretaria" placeholder="Seleccione la subsecretaría de la que depende">
+                            <option></option>
+                        </select>
+                    </div>      
+                    <div class="form-group">
+                        <label for="responsable">Responsable:</label>
+                        <select class="select2" id="responsable" placeholder="Seleccione el responsable de esta dirección">
+                            <option></option>
+                        </select>
+                    </div>                            
+                    <div class="form-group text-right">
+                        <button class="btn btn-secondary" id="cancelarModal" type="submit">Cancelar</button>
+                        <button class="btn btn-primary" id="guardar" type="submit">Guardar</button>
+                    </div>
+                </div>
+            </div> <!-- // END .modal-body -->
+        </div> <!-- // END .modal-content -->
+    </div> <!-- // END .modal-dialog -->
+</div> <!-- // END .modal -->
+	<!-- jQuery -->
+	<script src="../assets/vendor/jquery.min.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="../assets/vendor/popper.min.js"></script>
+	<script src="../assets/vendor/bootstrap.min.js"></script>
+
+	<!-- Simplebar -->
+	<script src="../assets/vendor/simplebar.min.js"></script>
+
+	<!-- DOM Factory -->
+	<script src="../assets/vendor/dom-factory.js"></script>
+
+	<!-- MDK -->
+	<script src="../assets/vendor/material-design-kit.js"></script>
+
+	<!-- App -->
+	<script src="../assets/js/toggle-check-all.js"></script>
+	<script src="../assets/js/check-selected-row.js"></script>
+	<script src="../assets/js/dropdown.js"></script>
+	<script src="../assets/js/sidebar-mini.js"></script>
+	<script src="../assets/js/app.js"></script>
+
+	<script src="../assets/vendor/select2/select2.min.js"></script>
+    <script src="../assets/vendor/toastr.min.js"></script>
+
+    <!-- List.js -->
+	<script src="../assets/vendor/list.min.js"></script>
+	
+	<script type="application/javascript">
+        $(document).ready(function(){
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'slideDown',
+                timeOut: 3000
+            };
+            
+            $('#responsable').select2({
+                dropdownParent: $('#modal-agregardireccion'),
+                placeholder: 'Seleccione el responsable de esta secretaría',
+                ajax: {
+                    url: '/api/v1/usuario/list',
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+			});
+			
+			$('#secretaria').select2({
+                dropdownParent: $('#modal-agregardireccion'),
+                placeholder: 'Seleccione la secretaría de la que depende',
+                ajax: {
+                    url: '/api/v1/secretaria/list',
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+			});
+			
+			function getURL() {
+				return "/api/v1/secretaria/"+$('#secretaria').val();
+			}
+
+			$('#subsecretaria').select2({
+                dropdownParent: $('#modal-agregardireccion'),
+                placeholder: 'Seleccione la secretaría de la que depende',
+                ajax: {
+                    url: function() {
+						return getURL()
+					},
+                    dataType: 'json'
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+
+            $('#guardar').click(function() {
+                $('#guardar').prop('disabled', true);
+                $.post("/api/v1/direccion/crear", { nombre: $('#nombre').val(), responsable: $('#responsable').val(), secretaria: $('#secretaria').val(), subsecretaria: $('#subsecretaria').val() }, function(data,status){
+                    data = JSON.parse(data);
+                    if(data.status === "success"){
+                        toastr.success(data.message, "Notificación");
+                        setTimeout (function() {
+                            location.href = '/estructuraorganizacional/direcciones';
+                        }, 3000);
+                    }else{
+                        $('#guardar').prop('disabled', false);
+                        toastr.error(data.message, "Error");                        
+                    }
+                });
+            });
+
+            $('#cancelarModal').click(function() {
+                $('#nombre').val('');
+				$('#responsable').empty();
+				$('#secretaria').empty();
+				$('#subsecretaria').empty();
+                $('#modal-agregardireccion').modal('toggle'); 
+            });
+
+            var options = {
+                valueNames: [ 'nombre', 'responsable' ]
+            };
+
+            var direccionesList = new List('direcciones', options);
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Evaluación</title>
+
+    <!-- Prevent the demo from appearing in search engines -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="../assets/vendor/simplebar.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../assets/css/app.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/app.rtl.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../assets/css/vendor-material-icons.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-material-icons.rtl.css" rel="stylesheet">
+
+    <!-- Font Awesome FREE Icons -->
+    <link type="text/css" href="../assets/css/vendor-fontawesome-free.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-fontawesome-free.rtl.css" rel="stylesheet">
+
+    <!-- Flatpickr -->
+    <link type="text/css" href="../assets/css/vendor-flatpickr.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-flatpickr.rtl.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-flatpickr-airbnb.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-flatpickr-airbnb.rtl.css" rel="stylesheet">
+
+    <!-- Select2 -->
+    <link type="text/css" href="../assets/css/vendor-select2.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/vendor-select2.rtl.css" rel="stylesheet">
+    <link type="text/css" href="../assets/vendor/select2/select2.min.css" rel="stylesheet">
+</head>
+
+<body class="layout-fluid layout-sticky-subnav">
+    <div class="preloader"><div class="loader loader-primary loader-lg"></div></div>
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+        <!-- Header -->
+        <div id="header" class="mdk-header bg-dark js-mdk-header m-0" data-fixed>
+            <div class="mdk-header__content">
+                <div class="navbar navbar-expand-sm navbar-main navbar-dark bg-dark pr-0 pr-0" id="navbar" data-primary>
+                    <div class="container-fluid p-0">
+                        <!-- Navbar toggler -->
+                        <button class="navbar-toggler navbar-toggler-custom navbar-toggler-right d-block" type="button" data-toggle="sidebar">
+                            <span class="material-icons">apps</span>
+                        </button>
+                        <!-- Navbar Brand -->
+                        <a href="#" class="navbar-brand ">
+                            <img class="navbar-brand-icon" src="../assets/images/logo.png" width="50" alt="HR MLN">
+                            <span>HR MLN</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content page">
+           <div class="page__header page__header-nav">
+            <div class="container-fluid page__container">
+                <div class="navbar navbar-secondary navbar-light navbar-expand-sm p-0">
+                    <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarsExample03" type="button">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="navbar-collapse collapse" id="navbarsExample03">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item active">
+                                <a href="#" class="nav-link" data-toggle="dropdown">Inicio</a>                                    
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menu</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="fluid-app-trello.html">Mis colaboradores</a>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-header">Estructura organizacional</div>
+                                    <a class="dropdown-item" href="puestos.html">Puestos</a>
+                                    <a class="dropdown-item" href="secretarias.html">Secretarías</a>
+                                    <a class="dropdown-item" href="subsecretarias.html">Subsecretarías</a>
+                                    <a class="dropdown-item" href="direcciones.html">Direcciones</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEADING -->
+        <div class="container-fluid page__heading-container">
+            <div class="page__heading d-flex align-items-center">
+                <div class="flex">
+                    <h1 class="mb-2">1. {{habilidad}} - {{tipo de habilidad}}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#"><i class="material-icons">person</i> {{nombre del evaluado}} - <div class="badge badge-info badge-pill mr-3">{{puesto}}</div> </a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div>
+                    <a href="" class="btn btn-outline-success">Guardar evaluación <i class="material-icons ml-2">check</i></a>
+                    <a href="" class="btn btn-light ml-3"><i class="material-icons">chevron_left</i> Ant.</a>
+                    <a href="" class="btn btn-light">Sig. <i class="material-icons">chevron_right</i></a>
+                </div>
+            </div>
+        </div>
+        <!-- END -->
+
+        <div class="container-fluid page__container">
+            <div class="row">
+                <div class="col-md-4 order-12">
+
+                    <div class="card">
+                        <ul class="list-group list-lessons">
+                            <li class="list-group-item d-flex align-items-center active">
+
+                                <div class="avatar avatar-sm mr-3">
+                                    <span class="avatar-title rounded-circle bg-primary">1</span>
+                                </div>
+                                <div>
+                                    <a href="#">Habilidad 1</a>
+                                </div>
+                                <div class="ml-auto d-flex align-items-center">
+                                    <span class="badge badge-success mr-2"><i class="material-icons icon-16pt">check_circle</i></span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center">
+                                <div class="avatar avatar-sm mr-3">
+                                    <span class="avatar-title rounded-circle bg-secondary">2</span>
+                                </div>
+                                <div>
+                                    <a href="#">Habilidad 2</a>
+                                </div>
+                                <div class="ml-auto d-flex align-items-center">
+                                    <span class="badge badge-gray mr-2"><i class="material-icons icon-16pt">timelapse</i></span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center">
+                                <div class="avatar avatar-sm mr-3">
+                                    <span class="avatar-title rounded-circle bg-secondary">3</span>
+                                </div>
+                                <div>
+                                    <a href="#">Habilidad 3</a>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center">
+                                <div class="avatar avatar-sm mr-3">
+                                    <span class="avatar-title rounded-circle bg-secondary">4</span>
+                                </div>
+                                <div>
+                                    <a href="#">Habilidad 4</a>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center">
+                                <div class="avatar avatar-sm mr-3">
+                                    <span class="avatar-title rounded-circle bg-secondary">5</span>
+                                </div>
+                                <div>                                        
+                                    <a href="#">Habilidad 5</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                    <div class="mb-3"><strong class="text-dark-gray">DESCRIPCIÓN HABILIDAD</strong></div>
+                    <p>
+                        {{Descripción de la habilidad}}
+                    </p>    
+                    <div class="card py-2 px-3 my-4">
+                        <div class=" d-flex justify-content-between align-items-center">
+
+                            <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
+                                <span class="avatar avatar-sm mr-2">
+                                   <span class="avatar-title rounded-circle">NE</span>
+                               </span>
+                               <span class="flex d-flex flex-column">
+                                <strong>{{Nombre del evaluador}}</strong>
+                                <small class="text-muted text-uppercase">EVALUADOR</small>
+                            </span>
+                        </a>
+                        <div> <span class="material-icons">grade</span> EVALUACIÓN </div>
+                        <div>
+                            
+                            <div class="form-group ml-2 mb-0" style="min-width: 50px;">
+                                        <select id="score" class="custom-select">
+                                            <option></option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>                            
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <!-- COMMENTS -->
+                <h4 class="mt-4">Comentario</h4>
+
+                <div class="input-group input-group-merge mb-4">
+                    <textarea class="form-control form-control-appended" required="" placeholder="Escribir mensaje" rows="1" style="resize: none"></textarea>
+                    <div class="input-group-append">
+                        <div class="input-group-text pr-2">
+                            <button class="btn btn-flush" type="button"><i class="material-icons">send</i></button>
+                        </div>                                
+                    </div>
+                </div>
+                <div class="py-3 border-bottom">
+                    <div class="d-flex mb-1">
+                        <div class="avatar avatar-sm mr-3">
+                            <span class="avatar-title rounded-circle">NE</span>
+                        </div>
+                        <div class="flex">
+                            <div class="d-flex align-items-center mb-1">
+                                <strong class="text-15pt">{{Nombre}}</strong>
+                                <small class="ml-2 text-muted">{{fecha}}</small>
+                            </div>
+                            <div>
+                                <p>{{Mensaje 1}}</p>
+                            </div>                                    
+                        </div>
+                    </div>
+                </div>
+                <div class="py-3 border-bottom">
+                    <div class="d-flex mb-1">
+                        <div class="avatar avatar-sm mr-3">
+                            <span class="avatar-title rounded-circle">NE</span>
+                        </div>
+                        <div class="flex">
+                            <div class="d-flex align-items-center mb-1">
+                                <strong class="text-15pt">{{Nombre}}</strong>
+                                <small class="ml-2 text-muted">{{fecha}}</small>
+                            </div>
+                            <div>
+                                <p>{{Mensaje 2}}</p>
+                            </div>                                    
+                        </div>
+                    </div>
+                </div>
+                <!-- END COMMENTS -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // END header-layout -->
+
+<div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="end">
+    <div class="mdk-drawer__content">
+        <div class="sidebar sidebar-light sidebar-left simplebar" data-simplebar>
+            <div class="d-flex align-items-center sidebar-p-a border-bottom sidebar-account">
+                <a href="#" class="flex d-flex align-items-center text-underline-0 text-body">
+                    <span class="avatar mr-3">                     
+                        <div class="avatar avatar-sm" >
+                            <span class="avatar-title rounded-circle">US</span>
+                        </div>  
+                    </span>
+                    <span class="flex d-flex flex-column">
+                        <strong><?php echo $_SESSION['name'];?></strong>
+                        <small class="text-muted text-uppercase"><?php echo $_SESSION['rol'];?></small>
+                    </span>
+                </a>
+                <div class="dropdown ml-auto">
+                    <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-item-text dropdown-item-text--lh">
+                            <div><strong><?php echo $_SESSION['name'];?></strong></div>
+                            <div><?php echo $_SESSION['rol'];?></div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Mi perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-heading sidebar-m-t">Menu</div>
+            <ul class="sidebar-menu">
+
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="ui-icons.html">
+                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                        <span class="sidebar-menu-text">Inicio</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
+                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
+                        <span class="sidebar-menu-text">Otra seccion</span>
+                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                    </a>
+                    <ul class="sidebar-submenu collapse" id="apps_menu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="sidebar-menu-text">Op1</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="sidebar-menu-text">Op2</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item ">
+                            <a class="sidebar-menu-button" data-toggle="collapse" href="#op3">
+                                <span class="sidebar-menu-text">Op 3</span>
+                                <span class="ml-auto d-flex align-items-center">
+                                    <span class="sidebar-menu-toggle-icon"></span>
+                                </span>
+                            </a>
+                            <ul class="sidebar-submenu collapse " id="op3">
+                                <li class="sidebar-menu-item ">
+                                    <a class="sidebar-menu-button" href="#">
+                                        <span class="sidebar-menu-text">Op 3.1</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item ">
+                                    <a class="sidebar-menu-button" href="#">
+                                        <span class="sidebar-menu-text">Op. 3.2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="sidebar-heading">Otro menu</div>
+            <div class="sidebar-block p-0">
+                <ul class="sidebar-menu" id="components_menu">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="../assets/vendor/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="../assets/vendor/popper.min.js"></script>
+<script src="../assets/vendor/bootstrap.min.js"></script>
+
+<!-- Simplebar -->
+<script src="../assets/vendor/simplebar.min.js"></script>
+
+<!-- DOM Factory -->
+<script src="../assets/vendor/dom-factory.js"></script>
+
+<!-- MDK -->
+<script src="../assets/vendor/material-design-kit.js"></script>
+
+<!-- App -->
+<script src="../assets/js/toggle-check-all.js"></script>
+<script src="../assets/js/check-selected-row.js"></script>
+<script src="../assets/js/dropdown.js"></script>
+<script src="../assets/js/sidebar-mini.js"></script>
+<script src="../assets/js/app.js"></script>
+
+<!-- App Settings (safe to remove) -->
+<script src="../assets/js/app-settings.js"></script>
+
+<!-- Flatpickr -->
+<script src="../assets/vendor/flatpickr/flatpickr.min.js"></script>
+<script src="../assets/js/flatpickr.js"></script>
+
+<!-- Global Settings -->
+<script src="../assets/js/settings.js"></script>
+
+<!-- Chart.js -->
+<script src="../assets/vendor/Chart.min.js"></script>
+
+<!-- App Charts JS -->
+<script src="../assets/js/charts.js"></script>
+
+<!-- Select2 -->
+<script src="../assets/vendor/select2/select2.min.js"></script>
+<script src="../assets/js/select2.js"></script>
+
+</body>
+
+</html>
