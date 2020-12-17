@@ -43,6 +43,25 @@ Route::add('/estructuraorganizacional/secretarias',function(){
   Page::render('secretarias','none');
 },['get', 'post']);
 
+Route::add('/misevaluaciones',function(){
+  Page::render('misevaluaciones','none');
+},['get', 'post']);
+
+Route::add('/mispdi',function(){
+  Page::render('mispdi','none');
+},['get', 'post']);
+
+Route::add('/pdi',function(){
+  Page::render('pdi','none');
+},['get', 'post']);
+
+Route::add('/evaluacion',function(){
+  Page::render('evaluacion','none');
+},['get', 'post']);
+
+Route::add('/resultadoevaluacion',function(){
+  Page::render('resultadoevaluacion','none');
+},['get', 'post']);
 
 Route::add('/testGET', function() {
   print_r($_GET);
